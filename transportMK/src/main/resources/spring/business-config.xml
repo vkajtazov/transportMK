@@ -29,7 +29,7 @@
 	<!-- enables scanning for @Transactional annotations -->
 	<tx:annotation-driven />
 	<beans>
-		<jpa:repositories base-package="com.project.transportMK.repositories" />
+		<jpa:repositories base-package="com.project.transportMK.repository" />
 		<bean id="entityManagerFactory"
 			class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean"
 			p:dataSource-ref="dataSource">
