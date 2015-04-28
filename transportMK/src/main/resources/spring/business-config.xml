@@ -17,7 +17,7 @@
 
 	<import resource="datasource-config.xml" />
 
-	<context:component-scan base-package="com.project.transportMK.services" />
+	<context:component-scan base-package= "com.project.transportMK.service" />
 
 
 	<!-- Configurer that replaces ${...} placeholders with values from a properties 

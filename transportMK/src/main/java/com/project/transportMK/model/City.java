@@ -9,9 +9,9 @@ public class City extends BaseEntity {
 
 	private String cityName;
 
-	private double cityLat;
+	private double cityLatitude;
 
-	private double cityLon;
+	private double cityLongitude;
 
 	public String getCityName() {
 		return cityName;
@@ -22,27 +22,26 @@ public class City extends BaseEntity {
 	}
 
 	public double getCityLat() {
-		return cityLat;
+		return cityLatitude;
 	}
 
 	public void setCityLat(double cityLat) {
-		this.cityLat = cityLat;
+		this.cityLatitude = cityLat;
 	}
 
-	public double getCityLon() {
-		return cityLon;
+	public double getCityLatitude() {
+		return cityLatitude;
 	}
 
-	public void setCityLon(double cityLon) {
-		this.cityLon = cityLon;
+	public void setCityLatitude(double cityLatitude) {
+		this.cityLatitude = cityLatitude;
 	}
 
-	public void setCityLat(float cityLat) {
-		this.cityLat = cityLat;
+	public double getCityLongitude() {
+		return cityLongitude;
 	}
 
-	public void setCityLon(float cityLon) {
-		this.cityLon = cityLon;
+	public void setCityLongitude(double cityLongitude) {
+		this.cityLongitude = cityLongitude;
 	}
-
 }

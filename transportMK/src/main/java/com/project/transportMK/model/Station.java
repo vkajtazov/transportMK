@@ -10,9 +10,9 @@ public class Station extends BaseEntity{
 
 	private String stationName;
 	
-	private double stationLat;
+	private double stationLatitude;
 	
-	private double stationLon;
+	private double stationLongitude;
 	
 	@ManyToOne
 	private City stationCity;
@@ -33,30 +33,20 @@ public class Station extends BaseEntity{
 		this.stationName = stationName;
 	}
 
-	public double getStationLat() {
-		return stationLat;
+	public double getStationLatitude() {
+		return stationLatitude;
 	}
 
-	public void setStationLat(double stationLat) {
-		this.stationLat = stationLat;
+	public void setStationLatitude(double stationLatitude) {
+		this.stationLatitude = stationLatitude;
 	}
 
-	public double getStationLon() {
-		return stationLon;
+	public double getStationLongitude() {
+		return stationLongitude;
 	}
 
-	public void setStationLon(double stationLon) {
-		this.stationLon = stationLon;
+	public void setStationLongitude(double stationLongitude) {
+		this.stationLongitude = stationLongitude;
 	}
-
-	public void setStationLat(float stationLat) {
-		this.stationLat = stationLat;
-	}
-
-
-	public void setStationLon(float stationLon) {
-		this.stationLon = stationLon;
-	}
-	
 	
 }

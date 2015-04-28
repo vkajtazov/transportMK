@@ -1,5 +1,7 @@
 package com.project.transportMK.service;
 
-public class StationService {
+import com.project.transportMK.model.Station;
+
+public interface StationService extends BaseEntityCrudService<Station>{
 
 }
