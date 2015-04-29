@@ -80,8 +80,10 @@
 	<script src="scripts/router.js"></script>
 	<!-- controllers definition -->
 	<script src="scripts/controllers/main.js"></script>
+	<script src="scripts/controllers/scheduleC.js"></script>
 	<!-- Services definition -->
 	<script src="scripts/services/services.js"></script>
+	<script src="scripts/services/scheduleS.js"></script>
 	<!-- endbuild -->
 </body>
 </html>

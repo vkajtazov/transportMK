@@ -21,6 +21,10 @@ FirstApp.config(['$routeProvider', function($routeProvider) {
   });
   $routeProvider.when('/students',{
 	  templateUrl: 'views/students.html'
+  });
+  $routeProvider.when('/schedule',{
+	  controller : 'scheduleC',
+	  templateUrl: 'views/scheduleV.html'
   })
   $routeProvider.otherwise({
     redirectTo: '/'

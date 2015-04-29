@@ -14,10 +14,15 @@ public class LineServiceImpl extends
 
 	@Autowired
 	private LineRepository repository;
-	
+
 	@Override
 	protected LineRepository getRepository() {
 		return repository;
+	}
+
+	@Override
+	public Line findByLineName(String lineName) {
+		return repository.findByLineName(lineName);
 	}
 
 }

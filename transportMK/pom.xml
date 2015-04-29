@@ -82,6 +82,14 @@
 	</properties>
 
 	<dependencies>
+	<!-- JSON lib -->
+		<dependency>
+			<groupId>org.json</groupId>
+			<artifactId>json</artifactId>
+			<version>20141113</version>
+		</dependency>
+
+
 		<dependency>
 			<groupId>org.jadira.usertype</groupId>
 			<artifactId>usertype.core</artifactId>
@@ -561,7 +569,7 @@
 				<version>2.2</version>
 				<configuration>
 					<server>tomcat-development-server</server>
-					
+
 					<port>9966</port>
 					<path>/transportMK</path>
 				</configuration>
