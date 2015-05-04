@@ -1,7 +1,6 @@
 FirstApp.controller('scheduleC', [ '$scope', 'scheduleS',
-		'$routeParams', function($scope, crudService, $routeParams) {
-
-			$scope.schedules = crudService.query();
+		function($scope, scheduleS) {
 		
+		$scope.lines = scheduleS.query();
 
 		} ]);

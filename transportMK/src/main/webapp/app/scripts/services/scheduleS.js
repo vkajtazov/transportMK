@@ -1,5 +1,7 @@
-var contextPath = "/web-programming/data/rest";
+var contextPath = "/transportMK/data/rest";
 
-FirstApp.factory('scheduleS', [ '$Resource', function($resource) {
+FirstApp.factory('scheduleS', ['$resource', function ($resource) {
+	
+
 	return $resource(contextPath + '/getData/cityBus', {}, {});
 } ]);
