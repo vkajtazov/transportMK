@@ -1,11 +1,17 @@
 <div class="row">
+	<label>Select line: <input type="text" ng-model="lineNumber"></label><br>
 	<table class="top-buffer">
 		<tr>
+			<th>Line name</th>
 			<th>Time</th>
 		</tr>
-		<tr ng-repeat="busLine in lines">
-			<td>{{busLine}}</td>
+		<tr
+			ng-repeat="busLine in lines | filter :{line:{ lineName:lineNumber}}">
+
+			<td ng-if="busLine.line.lineName==lineNumber" class="alert alert-success">{{busLine.line.lineName}}</td>
+			<td ng-if="busLine.line.lineName==lineNumber" class="alert alert-success">{{busLine.departureTime}}</td>
+			
 		</tr>
-		
+
 	</table>
 </div>
