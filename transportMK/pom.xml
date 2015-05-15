@@ -82,6 +82,20 @@
 	</properties>
 
 	<dependencies>
+			<!-- CORS DEPENDENCIES -->
+		<dependency>
+			<groupId>com.thetransactioncompany</groupId>
+			<artifactId>cors-filter</artifactId>
+			<version>2.1.2</version>
+		</dependency>
+		<dependency>
+			<groupId>com.thetransactioncompany</groupId>
+			<artifactId>java-property-utils</artifactId>
+			<version>1.9.1</version>
+		</dependency>
+		
+		<!-- CORS DEPENDENCIES END -->
+	
 		<!-- JSON lib -->
 		<dependency>
 			<groupId>org.json</groupId>
@@ -587,7 +601,7 @@
 					</descriptorRefs>
 				</configuration>
 			</plugin>
-			<plugin>
+	<!--		<plugin>
 				<groupId>org.apache.tomcat.maven</groupId>
 				<artifactId>tomcat7-maven-plugin</artifactId>
 				<version>2.2</version>
@@ -598,7 +612,7 @@
 					<path>/transportMK</path>
 				</configuration>
 			</plugin>
-
+	-->
 		</plugins>
 	</build>
 
