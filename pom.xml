@@ -82,7 +82,16 @@
 	</properties>
 
 	<dependencies>
-			<!-- CORS DEPENDENCIES -->
+
+		<!-- NEO4j DEPENDENCIES -->
+
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-neo4j</artifactId>
+			<version>3.3.0.RELEASE</version>
+		</dependency>
+
+		<!-- CORS DEPENDENCIES -->
 		<dependency>
 			<groupId>com.thetransactioncompany</groupId>
 			<artifactId>cors-filter</artifactId>
@@ -93,9 +102,9 @@
 			<artifactId>java-property-utils</artifactId>
 			<version>1.9.1</version>
 		</dependency>
-		
+
 		<!-- CORS DEPENDENCIES END -->
-	
+
 		<!-- JSON lib -->
 		<dependency>
 			<groupId>org.json</groupId>
@@ -601,18 +610,16 @@
 					</descriptorRefs>
 				</configuration>
 			</plugin>
-	<!--		<plugin>
+			<plugin>
 				<groupId>org.apache.tomcat.maven</groupId>
 				<artifactId>tomcat7-maven-plugin</artifactId>
 				<version>2.2</version>
 				<configuration>
 					<server>tomcat-development-server</server>
-
 					<port>9966</port>
 					<path>/transportMK</path>
 				</configuration>
 			</plugin>
-	-->
 		</plugins>
 	</build>
 
