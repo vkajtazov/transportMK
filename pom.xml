@@ -82,7 +82,7 @@
 	</properties>
 
 	<dependencies>
-			<!-- CORS DEPENDENCIES -->
+		<!-- CORS DEPENDENCIES -->
 		<dependency>
 			<groupId>com.thetransactioncompany</groupId>
 			<artifactId>cors-filter</artifactId>
@@ -93,15 +93,22 @@
 			<artifactId>java-property-utils</artifactId>
 			<version>1.9.1</version>
 		</dependency>
-		
+
 		<!-- CORS DEPENDENCIES END -->
-	
+
 		<!-- JSON lib -->
 		<dependency>
 			<groupId>org.json</groupId>
 			<artifactId>json</artifactId>
 			<version>20141113</version>
 		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-neo4j-rest</artifactId>
+			<version>3.3.2.RELEASE</version>
+		</dependency>
+
 
 
 		<dependency>
@@ -601,18 +608,20 @@
 					</descriptorRefs>
 				</configuration>
 			</plugin>
-	<!--		<plugin>
-				<groupId>org.apache.tomcat.maven</groupId>
-				<artifactId>tomcat7-maven-plugin</artifactId>
-				<version>2.2</version>
-				<configuration>
-					<server>tomcat-development-server</server>
 
-					<port>9966</port>
-					<path>/transportMK</path>
-				</configuration>
-			</plugin>
-	-->
+			<!-- Only for pc testing -->
+<!-- 			<plugin> -->
+<!-- 				<groupId>org.apache.tomcat.maven</groupId> -->
+<!-- 				<artifactId>tomcat7-maven-plugin</artifactId> -->
+<!-- 				<version>2.2</version> -->
+<!-- 				<configuration> -->
+<!-- 					<server>tomcat-development-server</server> -->
+
+<!-- 					<port>9966</port> -->
+<!-- 					<path>/transportMK</path> -->
+<!-- 				</configuration> -->
+<!-- 			</plugin> -->
+
 		</plugins>
 	</build>
 

@@ -1,12 +1,12 @@
-package com.project.transportMK.web.resources;
+package com.project.transportMK.web;
 
+import java.lang.reflect.Field;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
-import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,7 +25,6 @@ public abstract class CrudResource<T extends BaseEntity, S extends BaseEntityCru
 		for (T entity : entities) {
 			getService().save(entity);
 		}
-		System.out.println("da");
 	}
 
 	@RequestMapping(method = RequestMethod.POST, produces = "application/json")
@@ -36,16 +35,26 @@ public abstract class CrudResource<T extends BaseEntity, S extends BaseEntityCru
 	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.PUT, produces = "application/json")
-	public void edit(@PathVariable Long id, @RequestBody @Valid T jsonEntity,
-			HttpServletRequest request, HttpServletResponse response) {
+	public T edit(@PathVariable Long id, @RequestBody @Valid T jsonEntity,
+			HttpServletRequest request, HttpServletResponse response)
+			throws IllegalArgumentException, IllegalAccessException {
 		T persistentEntity = getService().findOne(id);
 		copyFields(jsonEntity, persistentEntity);
 		getService().save(persistentEntity);
+		return persistentEntity;
 	}
 
-	private void copyFields(T from, T to) {
-		// TODO Auto-generated method stub
+	private void copyFields(T from, T to) throws IllegalArgumentException,
+			IllegalAccessException {
+		Field[] fields = from.getClass().getDeclaredFields();
 
+		for (Field field : fields) {
+			field.setAccessible(true);
+
+			if (field.get(from) != null) {
+				field.set(to, field.get(from));
+			}
+		}
 	}
 
 	@RequestMapping(method = RequestMethod.GET, produces = "application/json")

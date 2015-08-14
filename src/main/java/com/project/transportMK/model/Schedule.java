@@ -12,9 +12,6 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "schedules")
 public class Schedule extends BaseEntity {
-
-	@ManyToOne
-	private Line line;
 	
 	@Enumerated(EnumType.STRING)
 	@Column(name = "vehicleType", length = 20, nullable = false)
@@ -32,13 +29,6 @@ public class Schedule extends BaseEntity {
 	
 	private int price;
 
-	public Line getLine() {
-		return line;
-	}
-
-	public void setLine(Line line) {
-		this.line = line;
-	}
 
 	public VehicleType getVehicleType() {
 		return vehicleType;

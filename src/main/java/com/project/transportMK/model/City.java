@@ -8,9 +8,7 @@ import javax.persistence.Table;
 public class City extends BaseEntity {
 
 	private String cityName;
-
 	private double cityLatitude;
-
 	private double cityLongitude;
 
 	public String getCityName() {
@@ -19,14 +17,6 @@ public class City extends BaseEntity {
 
 	public void setCityName(String cityName) {
 		this.cityName = cityName;
-	}
-
-	public double getCityLat() {
-		return cityLatitude;
-	}
-
-	public void setCityLat(double cityLat) {
-		this.cityLatitude = cityLat;
 	}
 
 	public double getCityLatitude() {
