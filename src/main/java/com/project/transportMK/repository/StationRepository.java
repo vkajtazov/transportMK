@@ -8,4 +8,5 @@ public interface StationRepository extends JpaRepository<Station, Long> {
 	
 	public Station findByStationName (String stationName);
 	
+	public Station findById (Long id);
 }

@@ -56,14 +56,12 @@ public class LineServiceImpl extends
 		Station arrivingStation = saveStation(entity.getArrivingStation());
 		Line result = repository.findByStartingStationAndArrivingStation(
 				startingStation, arrivingStation);
-		
-		
-		
+
 		if (result != null) {
 			for (Schedule sc : entity.getScheduleList()) {
 				Schedule temp = scheduleRepository.save(sc);
 				result.getScheduleList().add(temp);
-				
+
 			}
 			repository.save(result);
 			return result;
@@ -87,7 +85,7 @@ public class LineServiceImpl extends
 				.getStationName());
 		if (result != null)
 			return result;
-		//station.setStationCity(saveCity(station.getStationCity()));
+		// station.setStationCity(saveCity(station.getStationCity()));
 		return stationRepository.saveAndFlush(station);
 	}
 
@@ -98,4 +96,13 @@ public class LineServiceImpl extends
 		return cityRepository.save(city);
 	}
 
+	@Override
+	public List<Schedule> findSchedulesByLine(long startStation, long endStation) {
+		Station startingStation = stationRepository.findById(startStation);
+		Station arrivingStation = stationRepository.findById(endStation);
+
+		Line line = repository.findByStartingStationAndArrivingStation(
+				startingStation, arrivingStation);
+		return line.getScheduleList();
+	}
 }
