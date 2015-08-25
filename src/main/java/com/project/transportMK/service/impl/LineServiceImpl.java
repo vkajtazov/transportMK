@@ -105,4 +105,11 @@ public class LineServiceImpl extends
 				startingStation, arrivingStation);
 		return line.getScheduleList();
 	}
+
+	@Override
+	public Line findLineByStations(Long startId, Long endId) {
+		Station start = stationRepository.findById(startId);
+		Station end = stationRepository.findById(endId);
+		return repository.findByStartingStationAndArrivingStation(start, end);
+	}
 }

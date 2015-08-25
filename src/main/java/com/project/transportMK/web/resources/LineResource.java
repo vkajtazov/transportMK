@@ -21,7 +21,7 @@ public class LineResource extends CrudResource<Line, LineService> {
 
 	@Autowired
 	private LineService lineService;
-	
+
 	@Autowired
 	private StationRepository stationRepo;
 
@@ -30,13 +30,12 @@ public class LineResource extends CrudResource<Line, LineService> {
 		return lineService;
 	}
 
-	@RequestMapping(value = "/schedulesByStations", method = RequestMethod.POST)
-	public String getSchedulesByLine(@RequestParam String startStation,
-			@RequestParam String endStation) throws UnsupportedEncodingException {
-		startStation = URLDecoder.decode(startStation, "UTF-8");
-		endStation = URLDecoder.decode(endStation, "UTF-8");
-		return startStation + " "+endStation;
-		//return lineService.findLineByStations(startStation, endStation);
+	@RequestMapping(value = "/schedulesByStations", method = RequestMethod.POST, produces = "application/json")
+	public Line getSchedulesByLine(
+			@RequestParam("startStationId") Long startId,
+			@RequestParam("endStationId") Long endId)
+			throws UnsupportedEncodingException {
+		return lineService.findLineByStations(startId, endId);
 	}
 
 }
