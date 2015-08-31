@@ -3,18 +3,27 @@ package com.project.transportMK.model;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
 
 @Entity
-@Table(name="stations")
-public class Station extends BaseEntity{
+@Table(name = "stations")
+public class Station extends BaseEntity {
 
 	private String stationName;
-	
+
 	private double stationLatitude;
-	
+
 	private double stationLongitude;
-	
+
+	private String stationName_en;
+
+	public String getStationName_en() {
+		return stationName_en;
+	}
+
+	public void setStationName_en(String stationName_en) {
+		this.stationName_en = stationName_en;
+	}
+
 	@ManyToOne
 	private City stationCity;
 
@@ -54,8 +63,7 @@ public class Station extends BaseEntity{
 	public int hashCode() {
 		final int prime = 31;
 		int result;
-		result = prime 
-				+ ((stationCity == null) ? 0 : stationCity.hashCode());
+		result = prime + ((stationCity == null) ? 0 : stationCity.hashCode());
 		long temp;
 		temp = Double.doubleToLongBits(stationLatitude);
 		result = prime * result + (int) (temp ^ (temp >>> 32));
@@ -93,7 +101,5 @@ public class Station extends BaseEntity{
 			return false;
 		return true;
 	}
-	
-	
-	
+
 }

@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.project.transportMK.model.Station;
@@ -40,6 +39,11 @@ public class StationResource extends CrudResource<Station, StationService> {
 	public List<Station> findAllStartingStationsByType(
 			@PathVariable VehicleType type) {
 		return stationService.findAllStartingStationsByType(type);
+	}
+
+	@RequestMapping(value = "/setStationName", method = RequestMethod.GET)
+	public void setStationNameEN() {
+		stationService.setStationsName();
 	}
 
 }

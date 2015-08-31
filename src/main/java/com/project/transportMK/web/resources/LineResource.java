@@ -1,7 +1,6 @@
 package com.project.transportMK.web.resources;
 
 import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,10 +9,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.project.transportMK.model.Line;
-import com.project.transportMK.model.Station;
 import com.project.transportMK.repository.StationRepository;
 import com.project.transportMK.service.LineService;
-import com.project.transportMK.service.StationService;
 
 @RestController
 @RequestMapping("/data/rest/lines")

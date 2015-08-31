@@ -12,4 +12,6 @@ public interface StationService extends BaseEntityCrudService<Station> {
 	List<Station> findAllArrivingStationsByType(long id, VehicleType type);
 
 	List<Station> findAllStartingStationsByType(VehicleType type);
+
+	void setStationsName();
 }

@@ -1,7 +1,6 @@
 package com.project.transportMK.service.impl;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 
@@ -13,6 +12,7 @@ import com.project.transportMK.model.Schedule;
 import com.project.transportMK.model.Station;
 import com.project.transportMK.model.VehicleType;
 import com.project.transportMK.repository.LineRepository;
+import com.project.transportMK.repository.RenameStationName;
 import com.project.transportMK.repository.StationRepository;
 import com.project.transportMK.service.StationService;
 
@@ -26,6 +26,9 @@ public class StationServiceImpl extends
 
 	@Autowired
 	private LineRepository lineRepository;
+
+	@Autowired
+	private RenameStationName renameRepository;
 
 	@Override
 	protected StationRepository getRepository() {
@@ -80,5 +83,17 @@ public class StationServiceImpl extends
 			}
 		}
 		return stationList;
+	}
+
+	@Override
+	public void setStationsName() {
+		List<Station> stationList = repository.findAll();
+		for (int i = 0; i < stationList.size(); i++) {
+			Station temp = stationList.get(i);
+			String enName = renameRepository.getRenamedField(temp
+					.getStationName());
+			temp.setStationName_en(enName);
+			repository.saveAndFlush(temp);
+		}
 	}
 }
