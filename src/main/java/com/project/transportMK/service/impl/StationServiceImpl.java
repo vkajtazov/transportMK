@@ -1,12 +1,15 @@
 package com.project.transportMK.service.impl;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 
+import org.json.JSONException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.project.transportMK.model.City;
 import com.project.transportMK.model.Line;
 import com.project.transportMK.model.Schedule;
 import com.project.transportMK.model.Station;
@@ -14,6 +17,7 @@ import com.project.transportMK.model.VehicleType;
 import com.project.transportMK.repository.LineRepository;
 import com.project.transportMK.repository.RenameStationName;
 import com.project.transportMK.repository.StationRepository;
+import com.project.transportMK.service.LocationService;
 import com.project.transportMK.service.StationService;
 
 @Service
@@ -29,6 +33,9 @@ public class StationServiceImpl extends
 
 	@Autowired
 	private RenameStationName renameRepository;
+
+	@Autowired
+	private LocationService locationService;
 
 	@Override
 	protected StationRepository getRepository() {
@@ -94,6 +101,20 @@ public class StationServiceImpl extends
 					.getStationName());
 			temp.setStationName_en(enName);
 			repository.saveAndFlush(temp);
+		}
+	}
+
+	@Override
+	public void setStationLocation() throws IOException, JSONException {
+		List<Station> stationList = repository.findAll();
+		for (int i = 0; i < stationList.size(); i++) {
+			Station temp = stationList.get(i);
+			City city = locationService.getCityLocation(temp.getStationName());
+			if (city != null) {
+				temp.setStationLatitude(city.getCityLatitude());
+				temp.setStationLongitude(city.getCityLongitude());
+				repository.saveAndFlush(temp);
+			}
 		}
 	}
 }

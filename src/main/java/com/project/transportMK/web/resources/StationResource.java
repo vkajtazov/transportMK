@@ -1,7 +1,9 @@
 package com.project.transportMK.web.resources;
 
+import java.io.IOException;
 import java.util.List;
 
+import org.json.JSONException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -44,6 +46,11 @@ public class StationResource extends CrudResource<Station, StationService> {
 	@RequestMapping(value = "/setStationName", method = RequestMethod.GET)
 	public void setStationNameEN() {
 		stationService.setStationsName();
+	}
+
+	@RequestMapping(value = "/setLocation", method = RequestMethod.GET)
+	public void setLocation() throws IOException, JSONException {
+		stationService.setStationLocation();
 	}
 
 }

@@ -9,6 +9,7 @@ import com.project.transportMK.repository.RenameStationName;
 @Repository
 public class RenameStationNameImpl implements RenameStationName {
 
+	@SuppressWarnings("serial")
 	private HashMap<Character, String> alphaMap = new HashMap<Character, String>() {
 		{
 			put('а', "a");
