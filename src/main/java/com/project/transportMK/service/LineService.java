@@ -16,4 +16,6 @@ public interface LineService extends BaseEntityCrudService<Line> {
 	public List<Schedule> findSchedulesByLine(long startStation, long endStation);
 
 	public Line findLineByStations(Long startId, Long endId);
+	
+	public Line findLineByStationsAndType(Long startId, Long endId, String type);
 }

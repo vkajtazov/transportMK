@@ -112,4 +112,21 @@ public class LineServiceImpl extends
 		Station end = stationRepository.findById(endId);
 		return repository.findByStartingStationAndArrivingStation(start, end);
 	}
+
+	@Override
+	public Line findLineByStationsAndType(Long startId, Long endId, String type) {
+		Station start = stationRepository.findById(startId);
+		Station end = stationRepository.findById(endId);
+		Line returnLine = findByStartingStationAndArrivingStation(start, end);
+		type = type.toUpperCase();
+		List<Schedule> scheduleList = returnLine.getScheduleList();
+		List<Schedule> newList = new ArrayList<Schedule>();
+		for (Schedule schedule : scheduleList) {
+			if (schedule.getVehicleType().name().equals(type)) {
+				newList.add(schedule);
+			}
+		}
+		returnLine.setScheduleList(newList);
+		return returnLine;
+	}
 }

@@ -3,6 +3,7 @@ package com.project.transportMK.web.resources;
 import java.io.UnsupportedEncodingException;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -34,5 +35,16 @@ public class LineResource extends CrudResource<Line, LineService> {
 			throws UnsupportedEncodingException {
 		return lineService.findLineByStations(startId, endId);
 	}
+	
+	@RequestMapping(value = "/schedulesByStations/type/{type}", method = RequestMethod.POST, produces = "application/json")
+	public Line getSchedulesByLineAndType(
+			@RequestParam("startStationId") Long startId,
+			@RequestParam("endStationId") Long endId, 
+			@PathVariable("type") String type
+			)
+			throws UnsupportedEncodingException {
+		return lineService.findLineByStationsAndType(startId, endId, type);
+	}
+
 
 }
